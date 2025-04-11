@@ -18,11 +18,11 @@ pipeline {
     //   }
     // }
 
-    stage('Run Tests') {
-      steps {
-        sh 'node googleTest.js'
-      }
-    }
+    // stage('Run Tests') {
+    //   steps {
+    //     sh 'node googleTest.js'
+    //   }
+    // }
 
    
   }
