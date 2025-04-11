@@ -20,7 +20,7 @@ pipeline {
 
     stage('Run Tests') {
       steps {
-        sh 'npx mocha test/*.js --reporter mochawesome'
+        sh 'node googleTest.js'
       }
     }
 
