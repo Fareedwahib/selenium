@@ -1,0 +1,23 @@
+image: node:18
+
+stages:
+  - test
+
+test-selenium:
+  stage: test
+  services:
+    - name: selenium/standalone-chrome
+      alias: selenium
+  variables:
+    DISPLAY: ":99.0"
+  before_script:
+    - apt-get update
+    - apt-get install -y default-jdk xvfb
+    - npm install
+  script:
+    - xvfb-run --auto-servernum npm run test
+  artifacts:
+    paths:
+      - mochawesome-report/
+    reports:
+      junit: mochawesome-report/mochawesome.json
