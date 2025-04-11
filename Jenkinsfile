@@ -12,18 +12,16 @@ pipeline {
       }
     }
 
-    // stage('Install Dependencies') {
-    //   steps {
-    //     sh 'npm install'
-    //   }
-    // }
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
 
-    // stage('Run Tests') {
-    //   steps {
-    //     sh 'node googleTest.js'
-    //   }
-    // }
-
-   
+    stage('Run Google Search Test') {
+      steps {
+        sh 'node googleTest.js'
+      }
+    }
   }
 }
