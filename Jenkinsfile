@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    CHROME_BIN = "/usr/bin/google-chrome"
+    
   }
 
   stages {

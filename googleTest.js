@@ -1,24 +1,14 @@
-const { Builder, By } = require("selenium-webdriver");
-const assert = require("assert");
+//Setting Up and Basic Automation
+const { Builder, By, Key, until } = require("selenium-webdriver");
 
-describe("Google Search Test", function () {
-  this.timeout(30000);
-  let driver;
-
-  before(async () => {
-    driver = await new Builder().forBrowser("chrome").build();
-  });
-
-  after(async () => {
-    await driver.quit();
-  });
-
-  it("should open Google and search for ChatGPT", async () => {
-    await driver.get("https://www.google.com");
-    const searchBox = await driver.findElement(By.name("q"));
-    await searchBox.sendKeys("ChatGPT");
-    await searchBox.submit();
-    const title = await driver.getTitle();
-    assert.ok(title.includes("ChatGPT"));
-  });
-});
+async function openGoogle() {
+    let driver = await new Builder().forBrowser("chrome").build();
+    try {
+        await driver.get("https://www.google.com");
+        await driver.findElement(By.name("q")).sendKeys("isbat university", Key.RETURN);
+        await driver.wait(until.titleContains("isbat university"), 50000);
+    } finally {
+        await driver.quit();
+    }
+}
+openGoogle();
