@@ -1,12 +1,10 @@
 pipeline {
   agent any
 
-
-
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/Fareedwahib/selenium.git'
+        git branch: 'main', url: 'https://github.com/Fareedwahib/selenium.git'
       }
     }
 
